@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.revelope.mybatistest.mapper.TestMapper">
+    <select id="selectTest" parameterType="string" resultType="string">
+        SELECT
+            'AA'
+        FROM
+            DUAL
+            <choose>
+                <when test="@org.apache.commons.lang3.StringUtils@containsAny(arg, new String[]{'AAA', 'BBB'})">
+                    -- AAA or BBB
+                </when>
+                <otherwise>
+                    -- Others
+                </otherwise>
+            </choose>
+    </select>
+</mapper>
+
